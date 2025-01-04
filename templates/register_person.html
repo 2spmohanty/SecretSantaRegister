@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Register Person</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Register Person</h1>
+
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        {% if families %}
+            <form id="registerPersonForm">
+                <label for="family_id">Family Name:</label>
+                <select id="family_id" name="family_id" required>
+                    <option value="">Select Family</option>
+                    {% for family in families %}
+                        <option value="{{ family.id }}">{{ family.family_name }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="sticker_name">Sticker Name:</label>
+                <input type="text" id="sticker_name" name="sticker_name" required>
+
+                <label for="is_adult">Is Adult:</label>
+                <select id="is_adult" name="is_adult" required>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+
+                <button type="submit">Register Person</button>
+            </form>
+        {% else %}
+            <p>No families registered yet. Please register a family first.</p>
+            <a href="/register_family">Register Family</a> <!-- Link to register family -->
+        {% endif %}
+
+        <div id="responseMessagePerson"></div> <!-- Separate response message for person registration -->
+    </div>
+
+    <!-- Include JavaScript for Register Person -->
+    <script src="{{ url_for('static', filename='js/register_person.js') }}"></script>
+</body>
+</html>

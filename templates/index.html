@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Secret Santa</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Secret Santa!</h1>
+        <p>Use the links below to register a family or a person:</p>
+
+        <ul>
+            <li><a href="/register_family">Register Family</a></li>
+            <li><a href="/register_person">Register Person</a></li>
+        </ul>
+
+        <div id="responseMessage"></div>
+    </div>
+
+    <!-- Include any additional scripts here -->
+</body>
+</html>

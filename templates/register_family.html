@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Register Family</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Register Family</h1>
+
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <form id="registerFamilyForm">
+            <label for="family_name">Family Name:</label>
+            <input type="text" id="family_name" name="family_name" required>
+
+            <button type="submit">Register Family</button>
+        </form>
+
+        <div id="responseMessageFamily"></div> <!-- Separate response message for family registration -->
+    </div>
+
+    <!-- Include JavaScript for Register Family -->
+    <script src="{{ url_for('static', filename='js/register_family.js') }}"></script>
+</body>
+</html>
